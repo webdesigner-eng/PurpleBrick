@@ -1,5 +1,6 @@
 import Container from "@/components/common/container/container";
 import Link from "next/link";
+import Image from "next/image";
 
 export function ServiceHero({ content }) {
   return (
@@ -19,7 +20,7 @@ export function ServiceHero({ content }) {
             {content.stats.map(([value, label]) => <div key={label}><strong className="block text-3xl font-bold sm:text-4xl">{value}</strong><span className="mt-1 block text-xs text-[#a9aabb] sm:text-sm">{label}</span></div>)}
           </div>
         </div>
-        <div className="designing-hero-art"><img src={content.images[0]} alt="Creative design work" /><div><img src={content.images[1]} alt="Design work" /><img src={content.images[2]} alt="Design work" /></div></div>
+        <div className="designing-hero-art"><Image src={content.images[0]} alt="Creative design work" /><div><Image width={400} height={400} src={content.images[1]} alt="Design work" /><Image width={400} height={400} src={content.images[2]} alt="Design work" /></div></div>
       </Container>
     </section>
   );
@@ -35,7 +36,20 @@ export function ServicePillars({ title, description, pillars }) {
           <p className="text-center leading-7 text-[#5b5b67]">{description}</p>
         </div>
         <div className="designing-pillars">
-          {pillars.map((pillar, index) => <article key={pillar.number} className={`designing-pillar ${index === 1 ? "designing-pillar-reverse" : ""}`}><div className="designing-pillar-copy"><p className="designing-number">{pillar.number} — {pillar.name}</p><h3>{pillar.title}</h3><p className="leading-7 text-[#585864]">{pillar.description}</p><p className="mt-10 text-sm font-bold uppercase tracking-[0.16em] text-[#282832]">Included in this pillar</p><div className="mt-3 flex flex-wrap gap-2">{pillar.tags.map((tag) => <span className="designing-tag" key={tag}>{tag}</span>)}</div></div><img className="designing-pillar-art" src={pillar.image} alt="" /></article>)}
+          {pillars.map((pillar, index) => 
+          <article key={pillar.number} className={`designing-pillar ${index === 1 ? "designing-pillar-reverse" : ""}`}>
+            <div className="designing-pillar-copy">
+              <p className="designing-number">{pillar.number} — {pillar.name}</p>
+              <h3>{pillar.title}</h3>
+              <p className="leading-7 text-[#585864]">{pillar.description}</p>
+              <p className="pt-5 text-sm font-bold uppercase tracking-[0.16em] text-[#282832]">Included in this pillar</p>
+              <div className="mt-3 flex flex-wrap gap-2">{pillar.tags.map((tag) => <span className="designing-tag" key={tag}>{tag}</span>)}
+              </div>
+              </div>
+              <Image className="designing-pillar-art" height={320} width={632} src={pillar.image} alt="service pillar image" />
+              {console.log("PILLAR IMAGE:", pillar.image)}
+              </article>
+            )}
         </div>
       </Container>
     </section>

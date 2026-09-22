@@ -9,7 +9,12 @@ import { motion } from "motion/react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +33,7 @@ const Header = () => {
       initial={isScrolled ? { y: -100, opacity: 0 } : false}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className={`fixed top-0 left-0 w-full z-50 py-4 px-3 ${
+      className={`site-header fixed top-0 left-0 w-full z-50 py-4 px-3 ${
         isScrolled ? "bg-black shadow-lg" : "bg-transparent"
       }`}
     >
@@ -37,14 +42,17 @@ const Header = () => {
           <div className="menu_bar relative">
             <button
               className={`menu-btn-1 ${isMenuOpen ? "active" : ""}`}
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={() => {
+                setIsMenuOpen((open) => !open);
+                if (isMenuOpen) setIsServicesOpen(false);
+              }}
               aria-label="Toggle Menu"
             >
               <span></span>
             </button>
 
             <div
-              className={`menu_items absolute top-14 left-0 bg-black text-white p-5 rounded-lg min-w-[180px] transition-all duration-300 ${
+              className={`menu_items absolute top-14 left-0 bg-white text-white p-5 rounded-lg min-w-[180px] transition-all duration-300 ${
                 isMenuOpen
                   ? "opacity-100 visible translate-y-0"
                   : "opacity-0 invisible -translate-y-3"
@@ -52,19 +60,39 @@ const Header = () => {
             >
               <ul className="space-y-3">
                 <li>
-                  <Link href="/" onClick={() => setIsMenuOpen(false)}>
+                  <Link href="/" onClick={closeMenu}>
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" onClick={() => setIsMenuOpen(false)}>
+                  <Link href="/about" onClick={closeMenu}>
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                  <Link href="/contact" onClick={closeMenu}>
                     Contact
                   </Link>
+                </li>
+                <li>
+                  <Link href="/blog" onClick={closeMenu}>
+                    Blog
+                  </Link>
+                </li>
+                <li className="menu-services">
+                  <button
+                    type="button"
+                    className="menu-services-toggle"
+                    onClick={() => setIsServicesOpen((open) => !open)}
+                    aria-expanded={isServicesOpen}
+                  >
+                    Services <span>{isServicesOpen ? "−" : "+"}</span>
+                  </button>
+                  <div className={`menu-service-links ${isServicesOpen ? "is-open" : ""}`}>
+                    <Link href="/services/digitalmarketing" onClick={closeMenu}>Digital Marketing</Link>
+                    <Link href="/services/designing" onClick={closeMenu}>Designing</Link>
+                    <Link href="/services/consulting" onClick={closeMenu}>Consulting</Link>
+                  </div>
                 </li>
               </ul>
             </div>

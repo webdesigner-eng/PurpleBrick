@@ -71,7 +71,7 @@ const HappyClients = () => {
   return (
     <section ref={sectionRef} className="happy-clients-section bg-black py-12 overflow-hidden">
       <Container className="common-container">
-        <h2 className="comn-heading text-white text-center font-bold text-[36px] mb-10">
+        <h2 className="comn-heading mb-10 text-center text-white">
           Our Happy Clients
         </h2>
 

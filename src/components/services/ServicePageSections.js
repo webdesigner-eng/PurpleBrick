@@ -11,7 +11,7 @@ export function ServiceHero({ content }) {
         <div className="designing-hero-copy">
           <p className="designing-eyebrow">{content.eyebrow}</p>
           <h1 className="mb-6">{content.title} <span>{content.highlight}</span></h1>
-          <p className="mt-7 max-w-2xl text-base leading-7 text-[#c9c9d3] sm:text-lg">{content.description}</p>
+          <p className="mt-7 max-w-2xl text-[#c9c9d3]">{content.description}</p>
           <div className="mb-9 mt-9 flex flex-wrap gap-4">
             <Link href="/contact" className="designing-primary-button">Get Free Audit <span>↗</span></Link>
             <a href="#work" className="designing-secondary-button">See Our Work <span>↓</span></a>
@@ -33,7 +33,7 @@ export function ServicePillars({ title, description, pillars }) {
         <p className="designing-kicker text-center">What We Do</p>
         <div className="m-auto flex w-full max-w-[1000px] flex-col">
           <h2 className="mb-6 text-center">{title} <span>One Creative Team.</span></h2>
-          <p className="text-center leading-7 text-[#5b5b67]">{description}</p>
+          <p className="text-center text-[#5b5b67]">{description}</p>
         </div>
         <div className="designing-pillars">
           {pillars.map((pillar, index) => 
@@ -41,7 +41,7 @@ export function ServicePillars({ title, description, pillars }) {
             <div className="designing-pillar-copy">
               <p className="designing-number">{pillar.number} — {pillar.name}</p>
               <h3>{pillar.title}</h3>
-              <p className="leading-7 text-[#585864]">{pillar.description}</p>
+              <p className="text-[#585864]">{pillar.description}</p>
               <p className="pt-5 text-sm font-bold uppercase tracking-[0.16em] text-[#282832]">Included in this pillar</p>
               <div className="mt-3 flex flex-wrap gap-2">{pillar.tags.map((tag) => <span className="designing-tag" key={tag}>{tag}</span>)}
               </div>

@@ -16,6 +16,28 @@
   --light-purple: #efe7ff;
   --sky-blue: #13c4ff;
   --dark-green: #1a3d2f;
+
+  /* Global typography tokens — edit these values to update the whole site. */
+  --font-primary: var(--font-dm-sans), "DM Sans", sans-serif;
+  --type-h1-size: clamp(2.5rem, 4.85vw, 3.875rem);
+  --type-h1-weight: 800;
+  --type-h1-line-height: 1.1;
+  --type-h1-tracking: -0.04em;
+  --type-h2-size: clamp(2rem, 3.5vw, 3.25rem);
+  --type-h2-weight: 800;
+  --type-h2-line-height: 1.12;
+  --type-h2-tracking: -0.04em;
+  --type-h3-size: clamp(1.5rem, 2.4vw, 2rem);
+  --type-h3-weight: 700;
+  --type-h3-line-height: 1.15;
+  --type-h3-tracking: -0.03em;
+  --type-h4-size: clamp(1.125rem, 1.6vw, 1.375rem);
+  --type-h4-weight: 700;
+  --type-h4-line-height: 1.25;
+  --type-body-size: clamp(0.9375rem, 1.1vw, 1rem);
+  --type-body-weight: 400;
+  --type-body-line-height: 1.6;
+  --type-body-tracking: 0;
 }
 /* *{
     margin: 0;
@@ -26,45 +48,53 @@
 body {
   background: var(--dark-black);
   color: var(--foreground);
-  font-family:
-    DM Sans,
-    DM Mono;
+  font-family: var(--font-primary);
 }
 
-/* Global type scale for semantic content across every route. */
+/* Global semantic typography — shared by every route and component. */
 h1,
 h2,
 h3,
 h4,
-p {
+p,
+span {
+  font-family: inherit;
   margin-top: 0;
 }
 h1 {
-  font-size: clamp(2.5rem, 4.85vw, 3.875rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
+  font-size: var(--type-h1-size);
+  font-weight: var(--type-h1-weight);
+  letter-spacing: var(--type-h1-tracking);
+  line-height: var(--type-h1-line-height);
 }
 h2 {
-  font-size: clamp(2rem, 3.5vw, 3.25rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.12;
+  font-size: var(--type-h2-size);
+  font-weight: var(--type-h2-weight);
+  letter-spacing: var(--type-h2-tracking);
+  line-height: var(--type-h2-line-height);
 }
 h3 {
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  font-size: var(--type-h3-size);
+  font-weight: var(--type-h3-weight);
+  letter-spacing: var(--type-h3-tracking);
+  line-height: var(--type-h3-line-height);
 }
 h4 {
-  font-size: clamp(1.125rem, 1.6vw, 1.375rem);
-  font-weight: 700;
-  line-height: 1.25;
+  font-size: var(--type-h4-size);
+  font-weight: var(--type-h4-weight);
+  line-height: var(--type-h4-line-height);
 }
 p {
-  font-size: clamp(0.9375rem, 1.1vw, 1rem);
-  line-height: 1.6;
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  letter-spacing: var(--type-body-tracking);
+  line-height: var(--type-body-line-height);
+}
+span {
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
 }
 a {
   display: inline-block;
@@ -177,17 +207,11 @@ ul li {
 
 .site-footer-intro p {
   color: #d6d6df;
-  font-size: 14px;
-  line-height: 1.65;
   margin-top: 14px;
 }
 
 .site-footer-group h4 {
   color: #ffffff;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  line-height: 1.2;
   margin: 0 0 18px;
   text-transform: uppercase;
 }
@@ -222,7 +246,6 @@ ul li {
 
 .site-footer-bottom p {
   color: #d6d6df;
-  font-size: 14px;
 }
 
 .site-footer-socials {
@@ -341,22 +364,14 @@ ul li {
   padding-top: 0px;
 }
 .about-text h2 {
-  font-weight: 600;
-  line-height: 1.2;
   margin-bottom: 20px;
   color: var(--comn-white);
 }
 .about-text .about-sub-heading {
-  font-size: clamp(18px, 3vw, 26px);
-  font-weight: 600;
-  line-height: 1.5;
   color: var(--comn-white);
   margin-bottom: 20px;
 }
 .about-text .about-desc {
-  font-size: clamp(14px, 1.6vw, 16px);
-  font-weight: 400;
-  line-height: 1.5;
   color: var(--off-white);
 }
 
@@ -395,7 +410,6 @@ ul li {
 
 .mind-section p {
   margin-top: 30px;
-  font-size: 15px;
   color: var(--medium-gray);
 }
 
@@ -415,9 +429,7 @@ ul li {
 }
 
 .comn-sub-heading {
-  font-size: clamp(18px, 2vw, 28px);
-  font-weight: 600;
-  line-height: 1.5;
+  /* This semantic paragraph uses the global body typography. */
 }
 
 /* Services */
@@ -440,8 +452,6 @@ ul li {
   color: var(--medium-black);
 }
 .service-row p {
-  font-size: clamp(15px, 1.8vw, 18px);
-  line-height: 1.4;
   color: var(--dark-black);
 }
 .service-row a {
@@ -523,10 +533,7 @@ ul li {
   color: var(--dark-black);
 }
 .cta-section p {
-  font-size: clamp(18px, 2.5vw, 26px);
-  font-weight: 500;
   color: var(--dark-black);
-  line-height: 1.4;
   margin: 40px 0;
 }
 
@@ -535,8 +542,6 @@ ul li {
   background-color: var(--dark-black);
 }
 .latest-articles-heading {
-  line-height: 1.1;
-  font-weight: 800;
   color: #ffffff;
 }
 .latest-articles-heading span {
@@ -562,15 +567,9 @@ ul li {
   color: #3fffb5;
 }
 .latest-articles-card-title {
-  font-size: clamp(18px, 2vw, 22px);
-  line-height: 1.2;
-  font-weight: 800;
   color: #ffffff;
 }
 .latest-articles-desc {
-  font-size: clamp(14px, 1.5vw, 15px);
-  line-height: 1.6;
-  font-weight: 400;
   color: var(--off-white);
 }
 .latest-articles-avatar {
@@ -580,15 +579,9 @@ ul li {
   color: #ffffff;
 }
 .latest-articles-author {
-  font-size: 12px;
-  line-height: 1.2;
-  font-weight: 500;
   color: #ffffff;
 }
 .latest-articles-date {
-  font-size: 11px;
-  line-height: 1.2;
-  font-weight: 400;
   color: #7f89aa;
 }
 .latest-articles-read {
@@ -613,9 +606,6 @@ ul li {
   background-color: white;
 }
 .audit-form-heading {
-  font-size: clamp(30px, 4vw, 52px);
-  line-height: 1.15;
-  font-weight: 800;
   color: #ffffff;
 }
 .audit-label {
@@ -1230,9 +1220,74 @@ section {
 }
 .designing-page .designing-case-images img {
   border-radius: 14px;
-  height: 303px;
-  object-fit: cover;
+  height: 350px;
+  object-fit:fill;
   width: 100%;
+}
+
+/*
+ * Service pages inherit the same semantic scale as the rest of the site.
+ * These selectors intentionally come after the service-specific CSS above so
+ * their old heading declarations cannot create a second type system.
+ * Home's .hero-section h1 is deliberately excluded.
+ */
+.consulting-page h1,
+.digital-page h1,
+.designing-page h1,
+.consulting-hero h1,
+.digital-hero h1,
+.designing-page .designing-hero h1 {
+  font-size: var(--type-h1-size);
+  font-weight: var(--type-h1-weight);
+  letter-spacing: var(--type-h1-tracking);
+  line-height: var(--type-h1-line-height);
+}
+
+.consulting-page h2,
+.digital-page h2,
+.designing-page h2 {
+  font-size: var(--type-h2-size);
+  font-weight: var(--type-h2-weight);
+  letter-spacing: var(--type-h2-tracking);
+  line-height: var(--type-h2-line-height);
+}
+
+.consulting-page h3,
+.digital-page h3,
+.designing-page h3,
+.designing-page .designing-pillar h3 {
+  font-size: var(--type-h3-size);
+  font-weight: var(--type-h3-weight);
+  letter-spacing: var(--type-h3-tracking);
+  line-height: var(--type-h3-line-height);
+}
+
+.consulting-page h4,
+.digital-page h4,
+.designing-page h4 {
+  font-size: var(--type-h4-size);
+  font-weight: var(--type-h4-weight);
+  line-height: var(--type-h4-line-height);
+}
+
+.consulting-page p,
+.digital-page p,
+.designing-page p {
+  font-family: var(--font-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  letter-spacing: var(--type-body-tracking);
+  line-height: var(--type-body-line-height);
+}
+
+.consulting-page span,
+.digital-page span,
+.designing-page span {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
 }
 
 /* RESPONSIVE STYLES */
@@ -1346,9 +1401,6 @@ section {
   }
   .cta-section p {
     margin: 20px 0;
-  }
-  .designing-hero h1 {
-    letter-spacing: -0.07em;
   }
   .designing-avatar {
     height: 6rem;

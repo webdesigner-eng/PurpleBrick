@@ -73,11 +73,11 @@ const Tools = ({
     <section className={sectionClassName}>
       <Container className={containerClassName}>
         {eyebrow && <p className="mb-3 text-[13px] font-semibold leading-[21px] text-[#ba41f6]">{eyebrow}</p>}
-        <h2 className={`comn-heading mb-6 font-bold text-[#222] ${displayMode === "chips" ? "max-w-[940px] text-[clamp(2rem,3.1vw,2.75rem)] leading-[1.14] tracking-[-0.44px]" : ""}`}>
+        <h2 className={`comn-heading mb-6 text-[#222] ${displayMode === "chips" ? "max-w-[940px]" : ""}`}>
           {title}
         </h2>
 
-        <p className={`mt-3 ${displayMode === "chips" ? "max-w-[788px] text-[16.5px] font-normal leading-[27px] text-[#5b5b66]" : "comn-sub-heading font-semibold text-black"}`}>
+        <p className={`mt-3 ${displayMode === "chips" ? "max-w-[788px] text-[#5b5b66]" : "comn-sub-heading text-black"}`}>
           {subtitle}
         </p>
 

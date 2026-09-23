@@ -8,13 +8,7 @@ import pillar2 from "@/assets/images/service-img/pillar2.jpg";
 import hero1 from "@/assets/images/service-img/designing-hero1.jpg";
 import hero0 from "@/assets/images/service-img/designing-hero0.jpg";
 import hero2 from "@/assets/images/service-img/designing-hero2.jpg";
-// import designingcasehdb1 from "@/assets/images/service-img/hdb-1.jpg";
-// import designingcasehdb2 from "@/assets/images/service-img/hdb-2.jpg";
-// import designingcasealpex1 from "@/assets/images/service-img/alpex-1.jpg";
-// import designingcasealpex2 from "@/assets/images/service-img/alpex-2.jpg";
-// import designingcasepowerplay1 from "@/assets/images/service-img/powerplay-1.jpg";
-// import designingcasepowerplay2 from "@/assets/images/service-img/powerplay-2.jpg";
-
+import designingcasehdb1 from "@/assets/images/service-img/designing-case-hdb1.jpg";
 import Linkbtn from "@/components/ui/button/Linkbtn";
 import { ServiceHero, ServicePillars } from "@/components/services/ServicePageSections";
 import Tools from "@/components/home/tools";
@@ -194,9 +188,8 @@ export default function DesigningServicePage() {
                   <div><h3>{title}</h3><p>{description}</p>
                  </div>
               </div>
-              <div className="designing-case-images">
-                <Image width={500} height={350} objectFit="contain" src={`/designing/${index === 0 ? "hdb" : index === 1 ? "alpex" : "powerplay"}-1.jpg`} alt={`${title} campaign`} />
-                <Image width={500} height={350} objectFit="contain" src={`/designing/${index === 0 ? "hdb" : index === 1 ? "alpex" : "powerplay"}-2.jpg`} alt={`${title} campaign`} />
+              <div className="designing-case-images"><img src={`/designing/${index === 0 ? "hdb" : index === 1 ? "alpex" : "powerplay"}-1.jpg`} alt={`${title} campaign`} />
+              <img src={`/designing/${index === 0 ? "hdb" : index === 1 ? "alpex" : "powerplay"}-2.jpg`} alt={`${title} campaign`} />
               </div>
               </article>)}
               </div>
